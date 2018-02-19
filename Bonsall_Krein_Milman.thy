@@ -26,6 +26,22 @@ locale subadditive =
     and subadditive [iff?]: "x \<in> A \<Longrightarrow> y \<in> A \<Longrightarrow> \<parallel>x + y\<parallel> \<le> \<parallel>x\<parallel> + \<parallel>y\<parallel>"
 
 (*
+Need to show set of functions from a set to a real vector space forms a vector space.
+Approach adopted from treatment of bcontfun in Analysis/Bounded_Continuous_Function
+*)
+
+definition "algduald = {f. linearform UNIV f}"
+
+typedef (overloaded) ('a, 'b) algdual ("(_ \<Rightarrow>\<^sub>L /_)" [22, 21] 21) =
+  "algduald::('a::{minus,plus,uminus,zero}  \<Rightarrow> 'b::real_vector) set"
+
+instantiation algdual :: (set, real_vector) real_vector
+begin
+end
+  
+
+
+(*
  The following is definition is inspired by the definition of norm_pres_extensions in
  Hahn_Banach/Function_Order.
 *)
