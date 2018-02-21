@@ -30,12 +30,12 @@ Need to show set of functions from a set to a real vector space forms a vector s
 Approach adopted from treatment of bcontfun in Analysis/Bounded_Continuous_Function
 *)
 
-definition "algduald = {f. linearform UNIV f}"
+definition "algdual = {f. linearform UNIV f}"
 
-typedef (overloaded) ('a, 'b) algdual ("(_ \<Rightarrow>\<^sub>L /_)" [22, 21] 21) =
-  "algduald::('a::{minus,plus,uminus,zero}  \<Rightarrow> 'b::real_vector) set"
+typedef (overloaded) ('a,'b) algdual ("(_ \<Rightarrow>\<^sub>L /_)" [22, 21] 21) =
+  "algdual::('a::{minus,plus,uminus,zero}  \<Rightarrow> real) set"
 
-instantiation algdual :: (set, real_vector) real_vector
+instantiation algdual :: (set, real) real_vector
 begin
 end
   
