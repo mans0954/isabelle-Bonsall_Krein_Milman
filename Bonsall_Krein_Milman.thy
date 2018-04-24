@@ -32,18 +32,26 @@ Approach adopted from treatment of bcontfun in Analysis/Bounded_Continuous_Funct
 
 definition "algdual = {f. linearform UNIV f}"
 
+(* Can't get this definition right *)
+
+(*
 typedef (overloaded) ('a,'b) algdual ("(_ \<Rightarrow>\<^sub>L /_)" [22, 21] 21) =
   "algdual::('a::{minus,plus,uminus,zero}  \<Rightarrow> real) set"
+*)
+
+(*
 
 instantiation algdual :: (set, real) real_vector
 begin
 end
-  
+*)
 
 
 (*
  The following is definition is inspired by the definition of norm_pres_extensions in
  Hahn_Banach/Function_Order.
+
+ dominated_functionals are the functionals on B dominated by p:B\<rightarrow>real
 *)
 
 definition
@@ -54,6 +62,9 @@ definition
     = {x. (\<forall>b \<in> B. x b \<le> p b) \<and> linearform B x}"
 
 (* convex is defined as convex :: "'a::real_vector set \<Rightarrow> bool" in Convex_Euclidean_Space *)
+
+(* The following lemma won't work yet, as we don't know that the dominated functionals are a subset
+ of a real vector space *)
 
 lemma (in subadditive) dom_convex:
   fixes B
